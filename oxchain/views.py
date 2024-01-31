@@ -18,7 +18,6 @@ def register_user(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'PATCH':
-        # Assuming you have a user_id parameter in the request or another way to identify the user
         user_id = request.data.get('id')
         try:
             user = User.objects.get(pk=user_id)
