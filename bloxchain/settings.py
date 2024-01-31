@@ -85,9 +85,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_NAME'),
-        'HOST': config('DB_HOST'),
+        'HOST': 'dpg-cmt09qen7f5s73ais33g-a.oregon-postgres.render.com',
         'PORT': config('DB_PORT'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
