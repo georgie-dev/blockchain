@@ -1,11 +1,12 @@
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from .serializers import UserSerializer
 from django.contrib.auth import authenticate
 from rest_framework.decorators import api_view
 from django.core.exceptions import ObjectDoesNotExist
-from .models import User
+from .models import User, CryptoData
+from .serializers import DataSerializer
 
 
 @api_view(['POST', 'PATCH'])
@@ -60,3 +61,8 @@ def user_login(request):
                 , status=status.HTTP_200_OK)
 
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+class cryptoDataSet(viewsets.ModelViewSet):
+    queryset = CryptoData.objects.all()
+    serializer_class = DataSerializer
