@@ -63,6 +63,6 @@ def user_login(request):
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-class cryptoDataSet(viewsets.ModelViewSet):
+class CryptoDataSet(viewsets.ModelViewSet):
     queryset = CryptoData.objects.all()
     serializer_class = DataSerializer
