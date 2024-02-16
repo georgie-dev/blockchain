@@ -1,13 +1,12 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
-from .serializers import UserSerializer
+from .serializers import UserSerializer, DataSerializer
 from django.contrib.auth import authenticate
 from rest_framework.decorators import api_view
 from django.core.exceptions import ObjectDoesNotExist
-from django_filters.rest_framework import DjangoFilterBackend
 from .models import User, CryptoData
-from .serializers import DataSerializer
 from .filters import CryptoFilterSet
 
 
