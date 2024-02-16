@@ -31,8 +31,6 @@ def register_user(request):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-
 @api_view(['POST'])
 def user_login(request):
     if request.method == 'POST':
@@ -54,6 +52,7 @@ def user_login(request):
             return Response(
                 {
                     'token': token.key,
+                    'id': user.id,
                     'email': user.email,
                     'wallet': user.wallet,
                     'nationality': user.nationality
@@ -66,3 +65,8 @@ def user_login(request):
 class CryptoDataSet(viewsets.ModelViewSet):
     queryset = CryptoData.objects.all()
     serializer_class = DataSerializer
+
+class Users(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+

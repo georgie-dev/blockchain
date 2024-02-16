@@ -11,7 +11,9 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'email', 'password', 'password2', 'nationality', 'wallet', 'referral')
         extra_kwargs = {
             'referral': {'required': False},
-            'wallet': {'required': False}
+            'wallet': {'required': False},
+            "password": {"write_only": True},
+            "password@": {"write_only": True},
         }
 
     def validate(self, attrs):
