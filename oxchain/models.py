@@ -19,7 +19,7 @@ class User(AbstractUser):
 
 class CryptoData(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    btc= models.IntegerField(default=0)
-    eth= models.IntegerField(default=0)
-    sol= models.IntegerField(default=0)
+    btc= models.FloatField(default=0.00)
+    eth= models.FloatField(default=0.00)
+    sol= models.FloatField(default=0.00)
 
