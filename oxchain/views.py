@@ -5,8 +5,10 @@ from .serializers import UserSerializer
 from django.contrib.auth import authenticate
 from rest_framework.decorators import api_view
 from django.core.exceptions import ObjectDoesNotExist
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import User, CryptoData
 from .serializers import DataSerializer
+from .filters import CryptoFilterSet
 
 
 @api_view(['POST', 'PATCH'])
@@ -65,6 +67,8 @@ def user_login(request):
 class CryptoDataSet(viewsets.ModelViewSet):
     queryset = CryptoData.objects.all()
     serializer_class = DataSerializer
+    filter_backends=[DjangoFilterBackend]
+    filterset_class= CryptoFilterSet
 
 class Users(viewsets.ModelViewSet):
     queryset = User.objects.all()
