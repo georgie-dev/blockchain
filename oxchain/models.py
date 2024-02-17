@@ -19,7 +19,7 @@ class User(AbstractUser):
 
 class CryptoData(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    btc= models.DecimalField(default=0.00, decimal_places=2, max_digits=10)
-    eth= models.DecimalField(default=0.00, decimal_places=2, max_digits=10)
-    sol= models.DecimalField(default=0.00, decimal_places=2, max_digits=10)
+    btc= models.DecimalField(default=0.00, decimal_places=6, max_digits=10)
+    eth= models.DecimalField(default=0.00, decimal_places=6, max_digits=10)
+    sol= models.DecimalField(default=0.00, decimal_places=6, max_digits=10)
 

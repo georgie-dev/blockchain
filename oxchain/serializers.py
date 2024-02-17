@@ -55,9 +55,9 @@ class UserSerializer(serializers.ModelSerializer):
     
 class DataSerializer( serializers.ModelSerializer):
 
-    btc = serializers.DecimalField(max_digits=10, decimal_places=2)
-    eth = serializers.DecimalField(max_digits=10, decimal_places=2)
-    sol = serializers.DecimalField(max_digits=10, decimal_places=2)
+    btc = serializers.DecimalField(max_digits=10, decimal_places=6)
+    eth = serializers.DecimalField(max_digits=10, decimal_places=6)
+    sol = serializers.DecimalField(max_digits=10, decimal_places=6)
     class Meta:
         model = CryptoData
         fields = '__all__'  
